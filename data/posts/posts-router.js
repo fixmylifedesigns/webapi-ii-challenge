@@ -98,7 +98,9 @@ router.put("/:id", (req, res) => {
 
 router.delete("/:id", (req, res) => {
     const {id} = req.params;
-    Database.remove(id).then(deleted => {
+    Database
+    .remove(id)
+    .then(deleted => {
         res.status(204).end(deleted);
     }).catch(err => {
         res.status(500)
